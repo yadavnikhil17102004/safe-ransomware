@@ -28,5 +28,4 @@ congrates your files have been decripted
 └─$ cat file.txt      
 Imprtant messge to the director
                                                                                                                                                             
-┌──(kali㉿kali)-[~/ransomware]
-└─$ 
+
