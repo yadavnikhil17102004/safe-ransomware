@@ -1,0 +1,32 @@
+──(kali㉿kali)-[~/ransomware]
+└─$ ls
+decrypt.py  file2.txt  file3.txt  file.txt  ransome.py  test.py
+                                                                                                                                                            
+┌──(kali㉿kali)-[~/ransomware]
+└─$ python3 ransome.py   
+['file3.txt', 'test.py', 'file2.txt', 'file.txt']
+your files have been encripted send me 100 lakhs
+                                                                                                                                                            
+┌──(kali㉿kali)-[~/ransomware]
+└─$ cat file.txt
+gAAAAABnEWFiNqUvwwxiQPz-QCmIHquMUW4jowvPvns6fz0tLA4Yrf8H87pSB4vgg6DZhIKZ1QgQ5BjZSxejG-ib48_TjuutvUA4o3xS3gnsVnGAH0lVJ2NniZpyUnc0GmKvLqgdjoN3                                                                                                                                                            
+┌──(kali㉿kali)-[~/ransomware]
+└─$ python3 decrypt.py
+['file3.txt', 'test.py', 'file2.txt', 'file.txt']
+Enter the secreate phrase to decript yor files
+test  
+sorry wrong phrase, send me more 100000 laks
+                                                                                                                                                            
+┌──(kali㉿kali)-[~/ransomware]
+└─$ python3 decrypt.py
+['file3.txt', 'test.py', 'file2.txt', 'file.txt']
+Enter the secreate phrase to decript yor files
+coffee
+congrates your files have been decripted
+                                                                                                                                                            
+┌──(kali㉿kali)-[~/ransomware]
+└─$ cat file.txt      
+Imprtant messge to the director
+                                                                                                                                                            
+┌──(kali㉿kali)-[~/ransomware]
+└─$ 
